@@ -1,48 +1,34 @@
-import React, { useState } from "react";
-import { FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const promotions = [
-  {
-    title: "Summer Getaway",
-    description: "Enjoy 30% off on all summer packages!",
-    image: "/promo.jpg",
-    link: "#",
-  },
-  {
-    title: "Weekend Special",
-    description: "Book a weekend trip and get a free meal!",
-    image: "/promo1.jpg",
-    link: "#",
-  },
-  {
-    title: "Family Package",
-    description: "Plan a family trip and save 25%!",
-    image: "/promo2.jpg",
-    link: "#",
-  },
-  {
-    title: "Honeymoon Deals",
-    description: "Exclusive deals for honeymooners!",
-    image: "/promo3.jpg",
-    link: "#",
-  },
+  { image: "/promo.jpg" },
+  { image: "/promo1.jpg" },
+  { image: "/promo2.jpg" },
+  { image: "/promo3.jpg" },
 ];
 
 const Promo = () => {
-  const [startIndex, setStartIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const next = () => {
-    if (startIndex < promotions.length - 1) {
-      setStartIndex(startIndex + 1);
-    }
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % promotions.length);
   };
 
   const prev = () => {
-    if (startIndex > 0) {
-      setStartIndex(startIndex - 1);
-    }
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + promotions.length) % promotions.length
+    );
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      next();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="py-20">
@@ -52,25 +38,40 @@ const Promo = () => {
         </h2>
 
         <div className="flex overflow-hidden">
-          {promotions.slice(startIndex, startIndex + 1).map((promo, index) => (
-            <motion.div
+          {promotions
+            .slice(currentIndex, currentIndex + 1)
+            .map((promo, index) => (
+              <motion.div
+                key={index}
+                className="bg-white rounded-xl shadow-lg overflow-hidden w-full"
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="relative">
+                  <img
+                    src={promo.image}
+                    alt={promo.title}
+                    className="w-full h-screen object-cover"
+                  />
+                </div>
+              </motion.div>
+            ))}
+        </div>
+
+        <div className="flex justify-center mt-8">
+          {promotions.map((_, index) => (
+            <button
               key={index}
-              className="bg-white rounded-xl shadow-lg overflow-hidden w-full"
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="relative">
-                <img
-                  src={promo.image}
-                  alt={promo.title}
-                  className="w-full h-screen object-cover"
-                />
-              </div>
-            </motion.div>
+              onClick={() => setCurrentIndex(index)}
+              className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full mx-1 sm:mx-2 ${
+                index === currentIndex ? "bg-black" : "bg-gray-300"
+              }`}
+            />
           ))}
         </div>
+
         <div className="flex justify-between mt-4">
           <button
             onClick={prev}

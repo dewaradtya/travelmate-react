@@ -24,10 +24,19 @@ const shuffleArray = (array) => {
 
 const Gallery = () => {
   const [shuffledImages, setShuffledImages] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     setShuffledImages(shuffleArray(images));
   }, []);
+
+  const openModal = (image) => {
+    setSelectedImage(image);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
 
   return (
     <section className="py-20 bg-black">
@@ -41,6 +50,7 @@ const Gallery = () => {
             <div 
               key={index} 
               className="break-inside-avoid overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 relative group"
+              onClick={() => openModal(image)}
             >
               <img 
                 src={image.src} 
@@ -54,6 +64,20 @@ const Gallery = () => {
           ))}
         </div>
       </div>
+
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
+          <div className="relative">
+            <img src={selectedImage.src} alt={selectedImage.alt} className="max-w-full max-h-96" />
+            <button 
+              className="absolute top-2 right-2 text-white text-2xl"
+              onClick={closeModal}
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
