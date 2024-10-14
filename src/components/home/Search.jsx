@@ -14,7 +14,7 @@ const Search = () => {
 
   return (
     <div
-      className="relative mx-auto z-30 w-full max-w-4xl mt-10 px-4"
+      className="relative mx-auto z-30 w-full max-w-7xl mt-10 px-4"
       style={{ marginTop: "-100px" }}
     >
       <div className="bg-white rounded-lg shadow-lg p-6">

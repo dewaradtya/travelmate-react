@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog/Index";
 import ScrollToTop from "./components/ScrollToTop";
+import BlogDetail from "./pages/Blog/Show";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/destination/:name" element={<DestinationDetail />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
         </Routes>
         <Footer />
       </div>

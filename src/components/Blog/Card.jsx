@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaArrowRight, FaClock, FaTimes } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const blogs = [
   {
@@ -84,93 +85,73 @@ const blogs = [
   },
 ];
 
-const BlogCard = ({ blog, index, onReadMore }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 50 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, delay: index * 0.1 }}
-    whileHover={{ scale: 1.05 }}
-    className="bg-white rounded-xl overflow-hidden shadow-lg"
-  >
-    <img
-      src={blog.image}
-      alt={blog.title}
-      className="w-full h-48 object-cover"
-    />
-    <div className="p-6">
-      <div className="flex justify-between items-center mb-4">
-        <motion.span
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
-          className="text-xs font-semibold bg-blue-100 text-blue-800 rounded-full px-3 py-1"
-        >
-          {blog.category}
-        </motion.span>
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
-          className="flex items-center text-gray-500"
-        >
-          <FaClock className="w-4 h-4 mr-1" />
-          <span className="text-sm">{blog.date}</span>
-        </motion.div>
-      </div>
-      <motion.h3
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
-        className="text-xl font-bold mb-2 text-gray-800"
-      >
-        {blog.title}
-      </motion.h3>
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
-        className="text-gray-600 mb-4"
-      >
-        {blog.excerpt}
-      </motion.p>
-      <button
-        onClick={() => onReadMore(blog)}
-        className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200"
-      >
-        Read More
-        <FaArrowRight className="w-4 h-4 ml-1" />
-      </button>
-    </div>
-  </motion.div>
-);
+const BlogCard = ({ blog, index }) => {
+  const navigate = useNavigate();
 
-const Modal = ({ blog, onClose }) => (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-    <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+  const handleReadMore = () => {
+    navigate(`/blog/${blog.id}`);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ scale: 1.05 }}
+      className="bg-white rounded-xl overflow-hidden shadow-lg"
+    >
+      <img
+        src={blog.image}
+        alt={blog.title}
+        className="w-full h-48 object-cover"
+      />
       <div className="p-6">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-bold text-gray-800">{blog.title}</h2>
-          <button
-            onClick={onClose}
-            className="text-gray-500 hover:text-gray-700"
+          <motion.span
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
+            className="text-xs font-semibold bg-blue-100 text-blue-800 rounded-full px-3 py-1"
           >
-            <FaTimes className="w-6 h-6" />
-          </button>
+            {blog.category}
+          </motion.span>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
+            className="flex items-center text-gray-500"
+          >
+            <FaClock className="w-4 h-4 mr-1" />
+            <span className="text-sm">{blog.date}</span>
+          </motion.div>
         </div>
-        <img
-          src={blog.image}
-          alt={blog.title}
-          className="w-full h-64 object-cover rounded-lg mb-4"
-        />
-        <p className="text-gray-600 mb-4">{blog.content}</p>
-        <div className="flex justify-between items-center text-sm text-gray-500">
-          <span>{blog.category}</span>
-          <span>{blog.date}</span>
-        </div>
+        <motion.h3
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
+          className="text-xl font-bold mb-2 text-gray-800"
+        >
+          {blog.title}
+        </motion.h3>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
+          className="text-gray-600 mb-4"
+        >
+          {blog.excerpt}
+        </motion.p>
+        <button
+          onClick={handleReadMore}
+          className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200"
+        >
+          Read More
+          <FaArrowRight className="w-4 h-4 ml-1" />
+        </button>
       </div>
-    </div>
-  </div>
-);
+    </motion.div>
+  );
+};
 
 const Blogs = () => {
   const [selectedBlog, setSelectedBlog] = useState(null);
