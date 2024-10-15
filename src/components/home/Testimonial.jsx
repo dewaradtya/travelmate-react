@@ -73,41 +73,41 @@ const Testimonial = () => {
               <img
                 src={testimonials[currentIndex].avatar}
                 alt={testimonials[currentIndex].name}
-                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mb-4 md:mb-0 md:mr-6 object-cover"
+                className="w-20 h-20 xs:w-24 xs:h-24 rounded-full mb-4 md:mb-0 md:mr-6 object-cover"
               />
               <div className="text-center md:text-left">
-                <h3 className="text-xl sm:text-2xl font-semibold text-gray-800">
+                <h3 className="text-xl xs:text-2xl font-semibold text-gray-800">
                   {testimonials[currentIndex].name}
                 </h3>
-                <p className="text-sm sm:text-base text-gray-600">
+                <p className="text-sm xs:text-base text-gray-600">
                   {testimonials[currentIndex].designation}
                 </p>
                 <div className="flex justify-center md:justify-start mt-2">
                   {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
                     <FaStar
                       key={i}
-                      className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current"
+                      className="w-4 h-4 xs:w-5 xs:h-5 text-yellow-400 fill-current"
                     />
                   ))}
                 </div>
               </div>
             </div>
-            <p className="text-gray-700 text-sm sm:text-lg italic leading-relaxed">
+            <p className="text-gray-700 text-sm xs:text-lg italic leading-relaxed">
               "{testimonials[currentIndex].feedback}"
             </p>
           </motion.div>
 
           <button
             onClick={prevTestimonial}
-            className="hidden md:block absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-8 sm:-translate-x-12 bg-white p-2 sm:p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-200"
+            className="hidden xs:block absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-8 xs:-translate-x-12 bg-white p-2 xs:p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-200"
           >
-            <FaChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
+            <FaChevronLeft className="w-4 h-4 xs:w-5 xs:h-5 text-gray-600" />
           </button>
           <button
             onClick={nextTestimonial}
-            className="hidden md:block absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-8 sm:translate-x-12 bg-white p-2 sm:p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-200"
+            className="hidden xs:block absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-8 xs:translate-x-12 bg-white p-2 xs:p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-200"
           >
-            <FaChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
+            <FaChevronRight className="w-4 h-4 xs:w-5 xs:h-5 text-gray-600" />
           </button>
         </div>
 
@@ -116,7 +116,7 @@ const Testimonial = () => {
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full mx-1 sm:mx-2 ${
+              className={`w-2.5 h-2.5 xs:w-3 xs:h-3 rounded-full mx-1 xs:mx-2 ${
                 index === currentIndex ? "bg-blue-500" : "bg-gray-300"
               }`}
             />

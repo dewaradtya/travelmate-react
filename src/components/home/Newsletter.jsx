@@ -29,14 +29,14 @@ const Newsletter = () => {
 
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col sm:flex-row items-center justify-center max-w-lg mx-auto"
+        className="flex flex-col xs:flex-row items-center justify-center max-w-lg mx-auto"
       >
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
-          className="w-full px-4 py-3 rounded-lg mb-4 sm:mb-0 sm:mr-4 flex-grow"
+          className="w-full px-4 py-3 rounded-lg mb-4 xs:mb-0 xs:mr-4 flex-grow"
           required
         />
         <motion.button

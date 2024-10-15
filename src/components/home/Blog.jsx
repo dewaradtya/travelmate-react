@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaArrowRight, FaClock, FaTimes } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import blogs from '../Blog/BlogData';
 
 const BlogCard = ({ blog }) => {
@@ -57,18 +57,18 @@ const Blog = () => {
         <p className="text-left text-gray-600 mb-12 max-w-2xl">
           Discover travel tips, hidden gems, and inspiring stories from around the world.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {limitedBlogs.map((blog) => (
             <BlogCard key={blog.id} blog={blog} onReadMore={handleReadMore} />
           ))}
         </div>
         <div className="text-center mt-12">
-          <a
-            href="/blog"
+          <Link
+            to="/blog"
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition-colors duration-200"
           >
             View All Posts
-          </a>
+          </Link>
         </div>
       </div>
       {selectedBlog && <Modal blog={selectedBlog} onClose={handleCloseModal} />}

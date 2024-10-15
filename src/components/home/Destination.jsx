@@ -2,35 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-
-const destinations = [
-  {
-    name: "Bali",
-    image: "/bali.jpeg",
-    description: "Experience the tropical paradise.",
-  },
-  {
-    name: "Paris",
-    image: "/paris.jpeg",
-    description: "The city of love and lights.",
-  },
-  {
-    name: "Tokyo",
-    image: "/tokyo.jpeg",
-    description: "A blend of tradition and futurism.",
-  },
-  {
-    name: "New York",
-    image: "/new-york.jpeg",
-    description: "The city that never sleeps.",
-  },
-];
+import destinations from "../Destination/DestinationData";
 
 const Destination = () => {
   const navigate = useNavigate();
 
-  const handleDiscoverMore = (name) => {
-    navigate(`/destination/${name.toLowerCase()}`);
+  const handleDiscoverMore = (id) => {
+    navigate(`/destination/${id}`);
   };
 
   return (
@@ -59,7 +37,7 @@ const Destination = () => {
                     <p className="my-2 text-sm">{destination.description}</p>
                     <motion.button
                       whileTap={{ scale: 0.95 }}
-                      onClick={() => handleDiscoverMore(destination.name)}
+                      onClick={() => handleDiscoverMore(destination.id)}
                       className="flex items-center px-6 py-2 bg-white text-gray-900 font-semibold text-sm rounded-3xl shadow-md transition duration-300 ease-in-out transform hover:shadow-lg"
                     >
                       Discover More <FaArrowRight className="ml-2" />

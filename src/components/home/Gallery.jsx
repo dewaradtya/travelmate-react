@@ -45,7 +45,7 @@ const Gallery = () => {
         <p className="text-center mx-auto text-gray-200 mb-12 max-w-2xl">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, incidunt.
         </p>
-        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+        <div className="columns-1 xs:columns-2 sm:columns-3 md:columns-4 gap-4 space-y-4">
           {shuffledImages.map((image, index) => (
             <div 
               key={index} 

@@ -73,7 +73,7 @@ const Typography = () => {
           </motion.p>
         </motion.div>
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-8"
           variants={containerVariants}
         >
           {features.map((feature, index) => (
