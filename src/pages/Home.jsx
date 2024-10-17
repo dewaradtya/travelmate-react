@@ -1,14 +1,14 @@
 import React from "react";
-import Hero from "../components/TempHome/Hero";
-import Search from "../components/TempHome/Search";
-import Service from "../components/TempHome/Service";
-import Promo from "../components/TempHome/Promo";
-import Destination from "../components/TempHome/Destination";
-import Testimonial from "../components/TempHome/Testimonial";
-import Gallery from "../components/TempHome/Gallery";
-import Blog from "../components/TempHome/Blog";
-import Partner from "../components/TempHome/Partner";
-import Newsletter from "../components/TempHome/Newsletter";
+import Hero from "../components/Home/Hero";
+import Search from "../components/Home/Search";
+import Service from "../components/Home/Service";
+import Promo from "../components/Home/Promo";
+import Destination from "../components/Home/Destination";
+import Testimonial from "../components/Home/Testimonial";
+import Gallery from "../components/Home/Gallery";
+import Blog from "../components/Home/Blog";
+import Partner from "../components/Home/Partner";
+import Newsletter from "../components/Home/Newsletter";
 
 function Home() {
   return (
