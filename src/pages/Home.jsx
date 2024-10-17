@@ -2,7 +2,7 @@ import React from "react";
 import Hero from "../components/Home/Hero";
 import Search from "../components/Home/Search";
 import Service from "../components/Home/Service";
-import Promo from "../components/Home/Promo";
+import Promo from "../components/home/Promo";
 import Destination from "../components/Home/Destination";
 import Testimonial from "../components/Home/Testimonial";
 import Gallery from "../components/Home/Gallery";
