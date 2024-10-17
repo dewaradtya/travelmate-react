@@ -6,14 +6,14 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="bg-blue-900 py-12 text-white">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-3 pl-4 gap-8 text-left sm:text-left">
         <div>
           <h2 className="text-3xl font-bold mb-4">TravelMate</h2>
           <p className="text-gray-200 mb-6">
             Explore the world with us and discover amazing deals on travel
             destinations across the globe.
           </p>
-          <div className="flex justify-center md:justify-start space-x-4">
+          <div className="flex justify-start sm:justify-start space-x-4">
             <a
               href="#"
               className="hover:text-blue-800 transition-colors duration-300"

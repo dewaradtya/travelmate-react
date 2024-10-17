@@ -10,6 +10,7 @@ import Blog from "./pages/Blog/Index";
 import ScrollToTop from "./components/ScrollToTop";
 import BlogDetail from "./pages/Blog/Show";
 import OpeningAnimation from "./components/OpeningAnimation";
+import PromoDetail from "./pages/PromoDetail";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,6 +38,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/destination/:id" element={<DestinationDetail />} />
+          <Route path="/promo/:id" element={<PromoDetail />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
         </Routes>
         <Footer />

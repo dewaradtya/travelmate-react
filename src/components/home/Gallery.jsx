@@ -25,9 +25,15 @@ const shuffleArray = (array) => {
 const Gallery = () => {
   const [shuffledImages, setShuffledImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setShuffledImages(shuffleArray(images));
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const openModal = (image) => {
@@ -38,6 +44,12 @@ const Gallery = () => {
     setSelectedImage(null);
   };
 
+  const toggleShowAll = () => {
+    setShowAll(!showAll);
+  };
+
+  const displayedImages = isMobile && !showAll ? shuffledImages.slice(0, 3) : shuffledImages;
+
   return (
     <section className="py-20 bg-black">
       <div className="container mx-auto px-4">
@@ -46,7 +58,7 @@ const Gallery = () => {
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, incidunt.
         </p>
         <div className="columns-1 xs:columns-2 sm:columns-3 md:columns-4 gap-4 space-y-4">
-          {shuffledImages.map((image, index) => (
+          {displayedImages.map((image, index) => (
             <div 
               key={index} 
               className="break-inside-avoid overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 relative group"
@@ -63,6 +75,17 @@ const Gallery = () => {
             </div>
           ))}
         </div>
+
+        {isMobile && (
+          <div className="text-center mt-8">
+            <button 
+              onClick={toggleShowAll}
+              className="bg-white text-black py-2 px-4 rounded-full hover:bg-gray-200 transition-colors duration-300"
+            >
+              {showAll ? 'Less' : 'More'}
+            </button>
+          </div>
+        )}
       </div>
 
       {selectedImage && (

@@ -16,7 +16,7 @@ const Map = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-5xl font-extrabold text-left text-white mb-16 tracking-tight">Our Location</h2>
         <div className="w-full h-96">
-          <MapContainer center={position} zoom={13} scrollWheelZoom={false} className="w-full h-full rounded-lg shadow-lg">
+          <MapContainer center={position} zoom={13} scrollWheelZoom={false} className="w-full h-full rounded-lg shadow-lg" style={{ zIndex: 1 }}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

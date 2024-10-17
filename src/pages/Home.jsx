@@ -1,14 +1,14 @@
 import React from "react";
-import Hero from "../components/home/Hero";
-import Search from "../components/home/Search";
-import Service from "../components/home/Service";
-import Promo from "../components/home/Promo";
-import Destination from "../components/home/Destination";
-import Testimonial from "../components/home/Testimonial";
-import Gallery from "../components/home/Gallery";
-import Blog from "../components/home/Blog";
-import Partner from "../components/home/Partner";
-import Newsletter from "../components/home/Newsletter";
+import Hero from "../components/Home/Hero";
+import Search from "../components/Home/Search";
+import Service from "../components/Home/Service";
+import Promo from "../components/Home/Promo";
+import Destination from "../components/Home/Destination";
+import Testimonial from "../components/Home/Testimonial";
+import Gallery from "../components/Home/Gallery";
+import Blog from "../components/Home/Blog";
+import Partner from "../components/Home/Partner";
+import Newsletter from "../components/Home/Newsletter";
 
 function Home() {
   return (

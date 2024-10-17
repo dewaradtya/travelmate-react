@@ -2,11 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const partners = [
-  { name: "Partner 1", logo: "/logo.png" },
-  { name: "Partner 2", logo: "/images.jpg" },
+  { name: "Partner 1", logo: "/images.jpg" },
+  { name: "Partner 2", logo: "/garuda.webp" },
   { name: "Partner 3", logo: "/images.png" },
-  { name: "Partner 5", logo: "/logo.png" },
-  { name: "Partner 4", logo: "/images.jpg" },
+  { name: "Partner 5", logo: "/images.jpg" },
+  { name: "Partner 4", logo: "/garuda.webp" },
   { name: "Partner 6", logo: "/images.png" },
 ];
 
@@ -14,7 +14,7 @@ const Partner = () => {
   return (
     <section className="py-20 overflow-hidden">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold text-center text-gray-800 mb-10">Our partnership</h2>
+        <h2 className="text-4xl font-bold text-center text-gray-800 mb-10">Airline Partnerships</h2>
 
         <motion.div
           className="flex space-x-20"
