@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import promotions from "../components/Promo/Data";
 import PromoImage from "../components/Promo/Image";
 import PromoTerms from "../components/Promo/Terms";
-import Promo from "../components/home/Promo";
+import Promo from "../components/Home/Promo";
 
 const PromoDetail = () => {
   const { id } = useParams();
